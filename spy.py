@@ -35,7 +35,7 @@ REQUEST_LIMIT = {'create': '10/minute', 'room': '2/second'}
 
 words_500 = Corpus('corpora/words-500.txt', wsgi=False)
 
-db = Database('WhoIsTheSpy.sqlite')
+db = Database('WhoIsTheSpy.sqlite',check_same_thread=False) #liming add check_same_thread=False
 
 users = Table('users', db)
 rooms = Table('rooms', db)
@@ -108,7 +108,7 @@ def enter(room_id):
     uid = session.get('uuid', None)
 
     if uid is None:
-        uid = uuid.uuid4().get_hex()
+        uid = uuid.uuid4().hex #get_hex() liming
         session['uuid'] = uid
 
     user_record = users(uuid=uid)
