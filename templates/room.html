@@ -1,4 +1,5 @@
 {% extends "base.html" %} {% block scripts %}
+<script type="text/javascript" src="https://cdn.staticfile.org/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script language="javascript">
     function home() {
         location.href = "/"
@@ -19,6 +20,14 @@
     function refresh() {
         location.reload()
     }
+    function ma() {
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+        	width : 200,
+        	height : 200
+        });
+        qrcode.makeCode(window.location.href);
+    }    
+
 </script>
 
 {{super()}} {% endblock %} {% block content %}
@@ -27,7 +36,7 @@
 </div>
 
 
-<table class="table-condensed">
+<table class="table">
     <tr>
         <th>房间代码:</th>
         <th>{{ room_id }}</th>
@@ -44,9 +53,9 @@
         <th>开始玩家:</th>
         <th>{{ start }}</th>
     </tr>
-    <tr>
+    <tr class="success">
         <th>你的词语:</th>
-        <th>{{ word }}</th>
+        <th><font size="5">{{ word }}</font></th>
     </tr>
 </table>
 <br>
@@ -54,10 +63,12 @@
 
 <div class="text-center">
     <div class="btn-group-vertical btn-group-lg" style="min-width: 90%;">
-        <button type="button" class="btn btn-primary" onclick="home()">主页</button>
+        <button type="button" class="btn btn-success" onclick="refresh()">刷新</button>
         <button type="button" class="btn btn-primary" onclick="vote()">投票</button>
-        <button type="button" class="btn btn-primary" onclick="change()">换词</button>
-        <button type="button" class="btn btn-primary" onclick="refresh()">刷新</button>
+        <button type="button" class="btn btn-warning" onclick="change()">换词</button>
+        <button type="button" class="btn btn-info" onclick="ma()">二维码</button>
+        <button type="button" class="btn btn-primary" onclick="home()">主页</button>
+        
     </div>
 </div>
 
