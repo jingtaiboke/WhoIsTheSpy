@@ -19,10 +19,16 @@
 ## 在python3下运行要注意
 
 * 38行,略作修改
+
 `db = Database('WhoIsTheSpy.sqlite',check_same_thread=False)`
 * 111行略作修改
+
 `uid = uuid.uuid4().hex #get_hex() `
 
 ## 其他修改
 
 * fork图片去掉(cn无法访问)
+* 房间内增加二维码,方便扫码
+* [bootstrap CDN](/root/WhoIsTheSpy/wodi_venv/lib/python3.7/site-packages/flask_bootstrap/__init__.py) 更换为国内源
+
+20210208 2:22竣工
