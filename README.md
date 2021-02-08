@@ -31,4 +31,8 @@
 * 房间内增加二维码,方便扫码
 * [bootstrap CDN](/root/WhoIsTheSpy/wodi_venv/lib/python3.7/site-packages/flask_bootstrap/__init__.py) 更换为国内源
 
+## 待办
+
+* 裁判出题
 20210208 2:22竣工
+
